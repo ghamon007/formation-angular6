@@ -1,0 +1,50 @@
+ <form [formGroup]="form" (ngSubmit)="register()">
+  <div class='form-group'>
+    <label>ID</label>
+    <input type="text" class='form-control' formControlName="id"/>
+    <div class='alert alert-danger' *ngIf="isError('id')">Champ invalide</div>
+  </div>
+  <div class='form-group'>
+      <label>Client</label>
+      <input type="text" class='form-control' formControlName="client"/>
+      <div class='alert alert-danger' *ngIf="isError('client')">Champ invalide</div>
+    </div>
+    <div class='form-group'>
+        <label>Date début</label>
+        <input type="text" class='form-control' formControlName="date_debut"/>
+    </div>
+    <div class='form-group'>
+          <label>Date Fin</label>
+          <input type="text" class='form-control' formControlName="date_fin"/>
+    </div>
+    <div class='form-group'>
+        <label>TJM</label>
+        <input type="text" class='form-control' formControlName="tjm_ht"/>
+        <div class='alert alert-danger' *ngIf="isError('tjm_ht')">Champ invalide</div>
+    </div>
+    <div class='form-group'>
+        <label>Nb jour</label>
+        <input type="number" class='form-control' formControlName="nb_jours"/>
+        <div class='alert alert-danger' *ngIf="isError('nb_jours')">Champ invalide</div>
+    </div>
+    <div class='form-group'>
+        <label>Taxe</label>
+        <input type="number" class='form-control' formControlName="taxe"/>
+        <div class='alert alert-danger' *ngIf="isError('taxe')">Champ invalide</div>
+    </div>
+
+    <div class='form-group'>
+        <label>Type</label>
+        <select class="form-control" formControlName="type">
+          <option *ngFor='let type of typePrestations ' [value]="type">{{type}}</option>
+        </select>
+    </div>
+    <div class='form-group'>
+        <label>Statut</label>
+        <select class="form-control" formControlName="state">
+          <option *ngFor='let state of statePrestations ' [value]="state">{{state}}</option>
+        </select>
+    </div>
+
+    <button [disabled]='form.invalid' type="submit" class='btn btn-primary' >Enregister</button>
+ </form>

@@ -1,0 +1,6 @@
+<app-tab [headers]='headers'>
+    <ng-container *ngFor='let presta of collection; index as i'>
+            <app-prestation [item]='presta' [index]='i' (Out)='update($event)'>
+      </app-prestation>
+    </ng-container>
+   </app-tab>

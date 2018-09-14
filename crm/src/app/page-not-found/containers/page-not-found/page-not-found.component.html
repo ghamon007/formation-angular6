@@ -1,0 +1,20 @@
+<h1>Erreur 404 : Page non trouvée !!!</h1>
+
+<ng-container *ngIf='(final$ | async) as final'>
+      <app-tab [headers]="postsHeaders">
+                  <ng-container *ngFor='let post of final[0]'>
+                    <tr>
+                    <td>{{post.title}}</td>
+                  </tr>
+                 </ng-container>
+
+        </app-tab>
+        <app-tab [headers]="commentsHeaders ">
+            <ng-container *ngFor='let comment of final[1]'>
+              <tr>
+              <td>{{comment.name}}</td>
+            </tr>
+           </ng-container>
+
+      </app-tab>
+  </ng-container>

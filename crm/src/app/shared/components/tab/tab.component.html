@@ -1,0 +1,12 @@
+<div class="table-responsive">
+<table class="table table-hover">
+    <thead>
+        <th *ngFor="let item of headers; index as i" scope="col">
+            {{item}}
+        </th>
+    </thead>
+    <tbody>
+      <ng-content></ng-content>
+    </tbody>
+  </table>
+</div>

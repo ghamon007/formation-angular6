@@ -1,0 +1,26 @@
+<th scope="row">{{item.id || 'Presta id non défini' }}</th>
+
+<td>{{item.client}}</td>
+<td>{{(item.date_debut | date:'shortDate')||'Date non définie' }}</td>
+<td>{{(item.date_fin  | date:'shortDate') ||'Date non définie'}}</td>
+<td>{{item.tjm_ht | currency :'EUR'}}</td>
+<td>{{item.nb_jours}}</td>
+<td>{{item.taxe}}</td>
+<td>{{item | total | currency :'EUR'}}</td>
+<td>{{item| total:true | currency :'EUR'}}</td>
+<td [appState]="item.state" >
+  <select (change)='update($event,"state")'>
+      <option [value]="item.state">  {{item.state}}</option>
+      <ng-container  *ngFor='let option of stateOptions'>
+          <option [value]="option" *ngIf="option !== item.state" > {{option}}</option>
+      </ng-container>
+    </select>
+</td>
+<td>
+    <select  (change)='update($event,"type")'>
+        <option [value]="item.type">  {{item.type}}</option>
+        <ng-container  *ngFor='let option of typeOptions'>
+            <option [value]="option" *ngIf="option !== item.type" > {{option}}</option>
+        </ng-container>
+      </select>
+</td>
